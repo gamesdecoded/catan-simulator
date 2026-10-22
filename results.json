@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "date": "2026-10-21",
+    "games_per_strategy": 50000,
+    "n_strategies": 5,
+    "engine": "4-player Catan, identical heuristic bots; Player 0's opening strategy is the only asymmetry; board re-randomized every game. See METHODS.md for full rules, simplifications (no player-to-player trading), and strategy definitions.",
+    "strategy_definitions": {
+      "baseline": "Control. Identical to the heuristic used by players 1-3: score each legal intersection as (sum of adjacent dice pips) + 1.5 * (distinct adjacent resource types, desert excluded); pick the highest score. Ties broken by lowest vertex id (deterministic).",
+      "max_pips": "Pick the legal intersection with the highest sum of adjacent dice pips (desert excluded, no diversity bonus). Applied independently to both draft picks. Ties broken by lowest vertex id.",
+      "diversity": "First pick: the legal intersection adjacent to the most distinct resource types (desert excluded); ties broken by higher pip sum, then lowest vertex id. Second pick: the legal intersection maximizing the number of distinct resource types covered by the UNION of both picks' adjacent hexes; ties broken by higher pip sum of the second vertex, then lowest vertex id.",
+      "port_seeking": "Prefer intersections touching a port (any of the 9 fixed ports: 4x 3:1, 5x 2:1): among legal intersections, pick a port vertex first; among port vertices (or if none are legal) pick the highest adjacent pip sum. Ties broken by lowest vertex id.",
+      "wheat_ore": "Prefer city-building resources: score each legal intersection by the sum of adjacent dice pips on WHEAT and ORE hexes only; ties broken by higher total adjacent pip sum (all resources), then lowest vertex id."
+    },
+    "total_run_seconds": 158.26667618751526
+  },
+  "strategies": {
+    "baseline": {
+      "strategy_id": 0,
+      "games": 50000,
+      "wins": 11404,
+      "wins_by_player": [
+        11404,
+        11875,
+        13034,
+        13687
+      ],
+      "win_rate": 0.22808,
+      "avg_game_turns": 118.15238,
+      "run_seconds": 45.39130139350891
+    },
+    "max_pips": {
+      "strategy_id": 1,
+      "games": 50000,
+      "wins": 10592,
+      "wins_by_player": [
+        10592,
+        12357,
+        13010,
+        14041
+      ],
+      "win_rate": 0.21184,
+      "avg_game_turns": 117.64664,
+      "run_seconds": 28.52302050590515
+    },
+    "diversity": {
+      "strategy_id": 2,
+      "games": 50000,
+      "wins": 13371,
+      "wins_by_player": [
+        13371,
+        11180,
+        12291,
+        13158
+      ],
+      "win_rate": 0.26742,
+      "avg_game_turns": 115.35376,
+      "run_seconds": 28.276920318603516
+    },
+    "port_seeking": {
+      "strategy_id": 3,
+      "games": 50000,
+      "wins": 3456,
+      "wins_by_player": [
+        3456,
+        14682,
+        15305,
+        16557
+      ],
+      "win_rate": 0.06912,
+      "avg_game_turns": 114.14302,
+      "run_seconds": 27.69487500190735
+    },
+    "wheat_ore": {
+      "strategy_id": 4,
+      "games": 50000,
+      "wins": 6640,
+      "wins_by_player": [
+        6640,
+        13981,
+        14396,
+        14983
+      ],
+      "win_rate": 0.1328,
+      "avg_game_turns": 117.27628,
+      "run_seconds": 28.379537343978882
+    }
+  }
+}

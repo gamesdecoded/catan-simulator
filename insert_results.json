@@ -1,0 +1,338 @@
+{
+  "meta": {
+    "date": "2026-10-22",
+    "engine": "engine.py (validated) + inserts.py; 4 identical heuristic bots, board re-randomized every game; no player-to-player trading. See METHODS.md.",
+    "ci": "95% Wald interval 1.96*sqrt(p(1-p)/n)",
+    "total_run_seconds": 474.53484773635864
+  },
+  "experiments": {
+    "random_control": {
+      "label": "random_control",
+      "definition": "Two settlements at uniformly random legal intersections; baseline heuristic play afterwards.",
+      "exp_player": 0,
+      "games": 50000,
+      "wins": 879,
+      "wins_by_player": [
+        879,
+        15710,
+        16192,
+        17219
+      ],
+      "win_rate": 0.01758,
+      "ci95": 0.0011519379925478627,
+      "cap_hits": 0,
+      "avg_game_turns": 114.25774,
+      "avg_opening_pips": 10.85822,
+      "avg_opening_distinct": 2.71668,
+      "avg_first_city_turn": 62.06966683020383,
+      "share_built_city": 0.44842,
+      "run_seconds": 68.50302791595459,
+      "seed": 91001
+    },
+    "seat_rotation": {
+      "seat_0": {
+        "label": "baseline_seat_0",
+        "definition": "Baseline strategy played from seat 0 of the 1-2-3-4-4-3-2-1 snake draft; all other seats baseline.",
+        "exp_player": 0,
+        "games": 50000,
+        "wins": 11424,
+        "wins_by_player": [
+          11424,
+          11872,
+          13064,
+          13640
+        ],
+        "win_rate": 0.22848,
+        "ci95": 0.0036801774388943802,
+        "cap_hits": 0,
+        "avg_game_turns": 118.01328,
+        "avg_opening_pips": 21.46772,
+        "avg_opening_distinct": 3.88142,
+        "avg_first_city_turn": 51.97958920702008,
+        "share_built_city": 0.77606,
+        "run_seconds": 39.074469804763794,
+        "seed": 91100
+      },
+      "seat_1": {
+        "label": "baseline_seat_1",
+        "definition": "Baseline strategy played from seat 1 of the 1-2-3-4-4-3-2-1 snake draft; all other seats baseline.",
+        "exp_player": 1,
+        "games": 50000,
+        "wins": 12036,
+        "wins_by_player": [
+          11229,
+          12036,
+          12880,
+          13855
+        ],
+        "win_rate": 0.24072,
+        "ci95": 0.0037473834699815814,
+        "cap_hits": 0,
+        "avg_game_turns": 117.81794,
+        "avg_opening_pips": 20.8927,
+        "avg_opening_distinct": 3.92554,
+        "avg_first_city_turn": 49.06768996574908,
+        "share_built_city": 0.7883,
+        "run_seconds": 38.93028426170349,
+        "seed": 91101
+      },
+      "seat_2": {
+        "label": "baseline_seat_2",
+        "definition": "Baseline strategy played from seat 2 of the 1-2-3-4-4-3-2-1 snake draft; all other seats baseline.",
+        "exp_player": 2,
+        "games": 50000,
+        "wins": 13105,
+        "wins_by_player": [
+          11231,
+          11964,
+          13105,
+          13700
+        ],
+        "win_rate": 0.2621,
+        "ci95": 0.003854813176650718,
+        "cap_hits": 0,
+        "avg_game_turns": 117.951,
+        "avg_opening_pips": 20.67014,
+        "avg_opening_distinct": 3.95652,
+        "avg_first_city_turn": 47.41070585017777,
+        "share_built_city": 0.80442,
+        "run_seconds": 39.26197862625122,
+        "seed": 91102
+      },
+      "seat_3": {
+        "label": "baseline_seat_3",
+        "definition": "Baseline strategy played from seat 3 of the 1-2-3-4-4-3-2-1 snake draft; all other seats baseline.",
+        "exp_player": 3,
+        "games": 50000,
+        "wins": 13797,
+        "wins_by_player": [
+          11280,
+          11991,
+          12932,
+          13797
+        ],
+        "win_rate": 0.27594,
+        "ci95": 0.003918011236232586,
+        "cap_hits": 0,
+        "avg_game_turns": 117.87596,
+        "avg_opening_pips": 20.59564,
+        "avg_opening_distinct": 3.97182,
+        "avg_first_city_turn": 47.24926613264341,
+        "share_built_city": 0.80396,
+        "run_seconds": 38.99638104438782,
+        "seed": 91103
+      }
+    },
+    "smart_port": {
+      "label": "smart_port",
+      "definition": "Port vertices whose port matches a produced resource (2:1 matched to the same resource on the vertex; 3:1 matched to any produced resource), highest pips wins; falls back to plain port-seeking.",
+      "exp_player": 0,
+      "games": 50000,
+      "wins": 3138,
+      "wins_by_player": [
+        3138,
+        14829,
+        15506,
+        16527
+      ],
+      "win_rate": 0.06276,
+      "ci95": 0.0021258760749763377,
+      "cap_hits": 0,
+      "avg_game_turns": 113.99204,
+      "avg_opening_pips": 15.25644,
+      "avg_opening_distinct": 3.01806,
+      "avg_first_city_turn": 56.35026838097616,
+      "share_built_city": 0.64088,
+      "run_seconds": 37.35289716720581,
+      "seed": 91201
+    },
+    "opening_stats": {
+      "baseline": {
+        "label": "opening_stats_baseline",
+        "definition": "Production strategy 'baseline' with opening instrumentation.",
+        "exp_player": 0,
+        "games": 25000,
+        "wins": 5620,
+        "wins_by_player": [
+          5620,
+          5968,
+          6600,
+          6812
+        ],
+        "win_rate": 0.2248,
+        "ci95": 0.005174770604909941,
+        "cap_hits": 0,
+        "avg_game_turns": 117.71424,
+        "avg_opening_pips": 21.4602,
+        "avg_opening_distinct": 3.88348,
+        "avg_first_city_turn": 51.588456971761914,
+        "share_built_city": 0.77484,
+        "run_seconds": 19.140045166015625,
+        "seed": 91300
+      },
+      "max_pips": {
+        "label": "opening_stats_max_pips",
+        "definition": "Production strategy 'max_pips' with opening instrumentation.",
+        "exp_player": 0,
+        "games": 25000,
+        "wins": 5169,
+        "wins_by_player": [
+          5169,
+          6064,
+          6532,
+          7235
+        ],
+        "win_rate": 0.20676,
+        "ci95": 0.005020207078198427,
+        "cap_hits": 0,
+        "avg_game_turns": 117.73732,
+        "avg_opening_pips": 21.9718,
+        "avg_opening_distinct": 3.46984,
+        "avg_first_city_turn": 52.50716788786238,
+        "share_built_city": 0.75336,
+        "run_seconds": 19.384585857391357,
+        "seed": 91301
+      },
+      "diversity": {
+        "label": "opening_stats_diversity",
+        "definition": "Production strategy 'diversity' with opening instrumentation.",
+        "exp_player": 0,
+        "games": 25000,
+        "wins": 6694,
+        "wins_by_player": [
+          6694,
+          5604,
+          6146,
+          6556
+        ],
+        "win_rate": 0.26776,
+        "ci95": 0.005488904079132154,
+        "cap_hits": 0,
+        "avg_game_turns": 115.25488,
+        "avg_opening_pips": 20.09348,
+        "avg_opening_distinct": 4.7156,
+        "avg_first_city_turn": 51.76142479694686,
+        "share_built_city": 0.81752,
+        "run_seconds": 19.238548278808594,
+        "seed": 91302
+      },
+      "port_seeking": {
+        "label": "opening_stats_port_seeking",
+        "definition": "Production strategy 'port_seeking' with opening instrumentation.",
+        "exp_player": 0,
+        "games": 25000,
+        "wins": 1596,
+        "wins_by_player": [
+          1596,
+          7347,
+          7944,
+          8113
+        ],
+        "win_rate": 0.06384,
+        "ci95": 0.0030304529563947367,
+        "cap_hits": 0,
+        "avg_game_turns": 114.20056,
+        "avg_opening_pips": 16.27608,
+        "avg_opening_distinct": 2.94476,
+        "avg_first_city_turn": 55.82274664044576,
+        "share_built_city": 0.6102,
+        "run_seconds": 18.911134004592896,
+        "seed": 91303
+      },
+      "wheat_ore": {
+        "label": "opening_stats_wheat_ore",
+        "definition": "Production strategy 'wheat_ore' with opening instrumentation.",
+        "exp_player": 0,
+        "games": 25000,
+        "wins": 3314,
+        "wins_by_player": [
+          3314,
+          6903,
+          7247,
+          7536
+        ],
+        "win_rate": 0.13256,
+        "ci95": 0.004203509537185517,
+        "cap_hits": 0,
+        "avg_game_turns": 117.3178,
+        "avg_opening_pips": 18.69528,
+        "avg_opening_distinct": 2.87916,
+        "avg_first_city_turn": 34.94716723549488,
+        "share_built_city": 0.879,
+        "run_seconds": 19.804354190826416,
+        "seed": 91304
+      }
+    },
+    "weight_sweep": {
+      "w_0.0": {
+        "label": "diversity_w_0.0",
+        "definition": "Diversity score = pips + 0.0 * distinct(joint union); ties by lowest vertex id. w=0.0 reproduces max_pips.",
+        "exp_player": 0,
+        "games": 50000,
+        "wins": 10422,
+        "wins_by_player": [
+          10422,
+          12407,
+          13369,
+          13802
+        ],
+        "win_rate": 0.20844,
+        "ci95": 0.0035604387690346254,
+        "cap_hits": 1,
+        "avg_game_turns": 117.69414,
+        "avg_opening_pips": 21.97286,
+        "avg_opening_distinct": 3.46122,
+        "avg_first_city_turn": 51.85534875076335,
+        "share_built_city": 0.75326,
+        "run_seconds": 39.546892404556274,
+        "seed": 91400
+      },
+      "w_1.5": {
+        "label": "diversity_w_1.5",
+        "definition": "Diversity score = pips + 1.5 * distinct(joint union); ties by lowest vertex id. w=0.0 reproduces max_pips.",
+        "exp_player": 0,
+        "games": 50000,
+        "wins": 13533,
+        "wins_by_player": [
+          13533,
+          11134,
+          12241,
+          13092
+        ],
+        "win_rate": 0.27066,
+        "ci95": 0.0038944678618754577,
+        "cap_hits": 1,
+        "avg_game_turns": 116.03268,
+        "avg_opening_pips": 21.41398,
+        "avg_opening_distinct": 4.26664,
+        "avg_first_city_turn": 51.71279243404679,
+        "share_built_city": 0.8036,
+        "run_seconds": 38.19973134994507,
+        "seed": 91401
+      },
+      "w_3.0": {
+        "label": "diversity_w_3.0",
+        "definition": "Diversity score = pips + 3.0 * distinct(joint union); ties by lowest vertex id. w=0.0 reproduces max_pips.",
+        "exp_player": 0,
+        "games": 50000,
+        "wins": 13559,
+        "wins_by_player": [
+          13559,
+          11280,
+          12213,
+          12948
+        ],
+        "win_rate": 0.27118,
+        "ci95": 0.0038968172434338255,
+        "cap_hits": 1,
+        "avg_game_turns": 115.51476,
+        "avg_opening_pips": 20.61374,
+        "avg_opening_distinct": 4.59,
+        "avg_first_city_turn": 51.47975100695716,
+        "share_built_city": 0.8193,
+        "run_seconds": 38.096068382263184,
+        "seed": 91402
+      }
+    }
+  }
+}
