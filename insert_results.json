@@ -1,5 +1,5 @@
 {
-  "meta": {
+  "info": {
     "date": "2026-10-22",
     "engine": "engine.py (validated) + inserts.py; 4 identical heuristic bots, board re-randomized every game; no player-to-player trading. See METHODS.md.",
     "ci": "95% Wald interval 1.96*sqrt(p(1-p)/n)",

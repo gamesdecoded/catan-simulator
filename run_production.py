@@ -17,7 +17,7 @@ N = 50_000
 OUT = "/home/hatch/workspace/sim-lab/catan/results.json"
 
 results = {
-    "meta": {
+    "info": {
         "date": datetime.date.today().isoformat(),
         "games_per_strategy": N,
         "n_strategies": len(STRATEGIES),
@@ -52,7 +52,7 @@ for sid, name in STRATEGIES.items():
           f"P0 {p0_wins}/{N} = {p0_wins / N * 100:.2f}%  "
           f"avg {stat[0] / N:.1f} turns  ({dt / 60:.1f} min)", flush=True)
 
-results["meta"]["total_run_seconds"] = time.time() - t_all
+results["info"]["total_run_seconds"] = time.time() - t_all
 with open(OUT, "w") as f:
     json.dump(results, f, indent=2)
 print(f"saved {OUT}")

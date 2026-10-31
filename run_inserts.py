@@ -109,7 +109,7 @@ def cached(key, thunk):
     return e
 
 
-out = {"meta": {
+out = {"info": {
     "date": datetime.date.today().isoformat(),
     "engine": "engine.py (validated) + inserts.py; 4 identical heuristic bots, "
               "board re-randomized every game; no player-to-player trading. "
@@ -174,13 +174,13 @@ for i, w in enumerate([0.0, 1.5, 3.0]):
             f"lowest vertex id. w=0.0 reproduces max_pips."))
 out["experiments"]["weight_sweep"] = sweep
 
-out["meta"]["total_run_seconds"] = time.time() - t_all
+out["info"]["total_run_seconds"] = time.time() - t_all
 with open(OUT, "w") as f:
     json.dump(out, f, indent=2)
 if os.path.exists(PARTIAL):
     os.remove(PARTIAL)  # all experiments checkpointed into the final file
 
-print(f"\nsaved {OUT} ({out['meta']['total_run_seconds'] / 60:.1f} min total)",
+print(f"\nsaved {OUT} ({out['info']['total_run_seconds'] / 60:.1f} min total)",
       flush=True)
 
 # ---- summary table ----
